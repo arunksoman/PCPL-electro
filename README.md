@@ -32,6 +32,6 @@
 > `Password : ar3k57u4`
 > Then access your RPi using Windows RD Client. `Your ip address: 192.168.43.215`
 
-> Caution: The RPi is now in DHCP mode. So that ip address will change with different ssid and passwd.
+> Caution: The RPi is now in DHCP mode. So that ip address will change with different ssid and passwd of wi-fi network you connected after a reboot. So try to use above ssid and passwd everytime.
 > `RPi username: pi`
 > `password: raspberry`
