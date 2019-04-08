@@ -35,3 +35,14 @@
 > Caution: The RPi is now in DHCP mode. So that ip address will change with different ssid and passwd of wi-fi network you connected after a reboot. So try to use above ssid and passwd everytime.
 > `RPi username: pi`
 > `password: raspberry`
+
+## Reading Keypad
+1. For reading or scanning keypad pull-up resistors are inevitable. Why? Google it. Or go through these articles: 
+1. [sparkfun article](https://learn.sparkfun.com/tutorials/pull-up-resistors/all).
+2. [Iamzxlee](https://www.google.com/amp/s/iamzxlee.wordpress.com/2013/07/24/4x4-matrix-keypad/amp/)
+3. [Chipprogrammer](https://chipprogrammer.blogspot.com/2016/12/8051-keyboard-interfacing.html?m=1)
+2. In RPi we have built-in pull up or down resistors of 1.8KOhms. So that we don't want to use external pull-up resistors as scene in article 3.
+3. The idea in single word is as follows. As the key press occurs there will be a short circuit. Short circuit indicates zero voltage while open circuit indicates equivalent to logical HIGH voltage. Being a CMOS device for RPi it is about 3.3v level.
+4. [Read alternative functions assigned to each GPIO pins in RPi arm based processor](https://www.raspberrypi.org/documentation/hardware/raspberrypi/bcm2835/BCM2835-ARM-Peripherals.pdf).(Page102). You can see which pins are pulled to **LOW** or logical zero. These pins are really useful for us. Note down GPIO/BCM numbering of those pins.
+5. Then go to terminal. Using command `pinout` we can find out corresponding BOARD number of these pins.
+6. I chose some pins that may not interrupt regular SPI and I2C functioning of RPi. Then wrote following program.
