@@ -83,3 +83,8 @@ while True:
     time.sleep(0.3)
 GPIO.cleanup()
 ```
+
+### Notations
+RPi: Raspberry Pi
+RD: Remote Desktop
+DHCP: Dynamic host control protocol
