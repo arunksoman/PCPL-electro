@@ -26,7 +26,7 @@
 8. Type IP address of RPi on Remote desktop client's window. In order to find out device's ip address connected to your smart phone you can use [network ip scanner](https://play.google.com/store/apps/details?id=com.network.networkip).
 9. Type your username and password on RD client window to access RPi.
 
-> Remember
+> Remember:
 > Make a network on your smartphone with
 > `SSID: anuja`
 > `Password : ar3k57u4`
