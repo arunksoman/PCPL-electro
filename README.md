@@ -1,5 +1,5 @@
 # Raspberry Pi PCPL Step-by-step Guide
-## Installing OS
+## Installing OS [Done]
 
 1. Go to [Raspberry pi downloads](https://www.raspberrypi.org/downloads/)
 2. Download [Raspbian Stretch](https://www.raspberrypi.org/downloads/raspbian/) (New official debian os distro). Then extract zip file. Then you can see an iso file.
