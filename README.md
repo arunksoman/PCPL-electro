@@ -30,4 +30,7 @@
 > Make a network on your smartphone with
 > `SSID: anuja`
 > `Password : ar3k57u4`
-> `Your ip address: 192.168.43.215`
+> Then access your RPi using Windows RD Client. `Your ip address: 192.168.43.215`
+> Caution: The RPi is now in DHCP mode. So that ip address will change with different ssid and passwd.
+> `RPi username: pi`
+> `password: raspberry`
