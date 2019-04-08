@@ -28,6 +28,6 @@
 
 > Remember
 > Make a network on your smartphone with
-> SSID: anuja
-> Password : ar3k57u4
-> Your ip address: 192.168.43.215
+> `SSID: anuja`
+> `Password : ar3k57u4`
+> `Your ip address: 192.168.43.215`
