@@ -105,7 +105,8 @@ touch keypad.py
 9. In order to create program open command line editor called **nano** using following command `sudo nano keypad.py`. Copy and paste above program on this window. In order to paste press `ctrl+shift+v`. 
 10. Press `ctrl+x` to exit command line editor
 11. Press `y` on next prompt to save and exit.
-12. Then in order to run `python3 keypad.py`
+12. Rig up circuit according to your program. Face up your 4×4 keypad. First 4 pins on the left represents rows while next 4 pins represents columns. All connections are made with physical pin numbering of RPi.Rows are connected to 8, 10, 11, 12. Next 4 pins are connected to 32, 33, 35 and 36 as you can see list in the program.
+13. Then in order to run program  `python3 keypad.py`
 
 ### Notations
 RPi: Raspberry Pi
