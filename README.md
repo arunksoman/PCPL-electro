@@ -84,6 +84,19 @@ while True:
 GPIO.cleanup()
 ```
 
+7. In order to run this program rig up the wires with keypad and Raspberry Pi.
+8. Then type following commands on terminal
+```bash
+cd ~
+mkdir my_project
+cd my_project
+touch keypad.py
+```
+9. In order to create program open command line editor called **nano** using following command `sudo nano keypad.py`. Copy and paste above program on this window. In order to paste press `ctrl+shift+v`. 
+10. Press `ctrl+x` to exit command line editor
+11. Press `y` on next prompt to save and exit.
+12. Then in order to run `python3 keypad.py`
+
 ### Notations
 RPi: Raspberry Pi
 RD: Remote Desktop
