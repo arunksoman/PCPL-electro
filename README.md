@@ -118,7 +118,7 @@ DHCP: Dynamic host control protocol
 
 1. Enable SPI. Read [Raspberry-sPi.co.uk](https://www.raspberrypi-spy.co.uk/2014/08/enabling-the-spi-interface-on-the-raspberry-pi/) article. **__Use method 1__** . In order to toggle b/w **Select**, **Finish**, **yes**, and  **no** use Tab keys.
 2. Reboot your Pi using `sudo reboot`
-3. Check SPI is enabled or not using following command `lsmod grep | spi`
+3. Check SPI is enabled or not using following command `lsmod grep | spi`. If you see **spi_bcm2835**, you cam proceed further.
 4. Install python3-dev using command `sudo apt-get install python3-dev python3`.
 5. Install spi-dev using command `sudo pip3 install spidev`
 6. Enter to your project directory using `cd ~/my_project`
@@ -151,3 +151,4 @@ except KeyboardInterrupt:
     GPIO.cleanup() 
     raise
 ```
+Refer [PymiLifeup for connections](https://pimylifeup.com/raspberry-pi-rfid-rc522/)
