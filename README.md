@@ -113,3 +113,41 @@ touch keypad.py
 RPi: Raspberry Pi
 RD: Remote Desktop
 DHCP: Dynamic host control protocol
+
+## RC522 RFID reader/ writer interfacing
+
+1. Enable SPI. Read [Raspberry-sPi.co.uk](https://www.raspberrypi-spy.co.uk/2014/08/enabling-the-spi-interface-on-the-raspberry-pi/) article. **__Use method 1__** . In order to toggle b/w **Select**, **Finish**, **yes**, and  **no** use Tab keys.
+2. Reboot your Pi using `sudo reboot`
+3. Check SPI is enabled or not using following command `lsmod grep | spi`
+4. Install python3-dev using command `sudo apt-get install python3-dev python3`.
+5. Install spi-dev using command `sudo pip3 install spidev`
+6. Enter to your project directory using `cd ~/my_project`
+7. Clone Pymilifeup SPI MFRC522 library using command `git clone https://github.com/pimylifeup/MFRC522-python.git`
+8. In order to install this Python package execute following commands one by one
+```bash
+cd MFRC522-python
+python setup.py install
+```
+9. Write program using following commands
+```bash
+touch read.py
+sudo nano read.py
+```
+Copy following program and paste using `ctrl+shift+v`. Then press `ctrl+x`. Hit on `y` followed by Enter to exit from command line text editor.
+
+```python
+###read.py
+from time import sleep
+import sys
+from mfrc522 import SimpleMFRC522
+reader = SimpleMFRC522()
+try:
+    while True:
+        print("Hold a tag near the reader")
+        id, text = reader.read() 
+        print("ID: %s\nText: %s" % (id,text))
+        sleep(5) 
+except KeyboardInterrupt:
+    GPIO.cleanup() 
+    raise
+```
