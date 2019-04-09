@@ -39,7 +39,7 @@
 
 ## Pinout
 
-In order to know more about GPIO headers visit [pinout.xyz](pinout.xyz)The RPi GPIO(General purpose IO) pinout given below.
+In order to know more about GPIO headers visit [pinout.xyz](https://pinout.xyz)The RPi GPIO(General purpose IO) pinout given below.
 ![GPIO Headers](/images/1554777830796.png)
 > Caution: RPi GPIO pins are very important in electronics perspective. You have to count Pin number as given in the picture. The **first pin is near to BLE(Bluetooth Low Energy Module which has Raspberry logo)**.
 
