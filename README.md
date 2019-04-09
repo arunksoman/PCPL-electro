@@ -14,6 +14,7 @@
 > Caution: After powering up do not put RPi on metal surface. Do not touch on exposed solder leads on the bottom since these regions are ESD prone and that may permanently damage your Pi.
 
 ##  Accessing Raspberry Pi via Remote Desktop[Done]
+
 1. In order to access remote desktop we have install windows xrdp on RPi. So that connect display to HDMI (if you have no HDMI cable, use HDMI to VGA adapter), USB keyboard, Mouse, LAN (also we can use Wi-Fi) to RPi. Then boot up RPi by connecting microUSB adapter(specs are mentioned above)
 2. Create a Wi-Fi said and password on your smartphone.
 3. Connect RPi on that using WiFi symbol on the task bar of RPi Desktop.
@@ -38,7 +39,7 @@
 
 ## Pinout
 
-The RPi GPIO(General purpose IO) pinout given below.
+In order to know more about GPIO headers visit [pinout.xyz](pinout.xyz)The RPi GPIO(General purpose IO) pinout given below.
 ![GPIO Headers](/images/1554777830796.png)
 > Caution: RPi GPIO pins are very important in electronics perspective. You have to count Pin number as given in the picture. The **first pin is near to BLE(Bluetooth Low Energy Module which has Raspberry logo)**.
 
