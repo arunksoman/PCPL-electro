@@ -85,7 +85,7 @@ GPIO.cleanup()
 ```
 
 7. In order to run this program rig up the wires with keypad and Raspberry Pi.
-8. Then type following commands on terminal
+8. Then type following commands one by one on terminal
 ```bash
 cd ~
 mkdir my_project
