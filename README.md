@@ -36,6 +36,16 @@
 > `RPi username: pi`
 > `password: raspberry`
 
+## Pinout
+
+The RPi GPIO(General purpose IO) pinout given below.
+![GPIO Headers](/images/1554777830796.png)
+> Caution: RPi GPIO pins are very important in electronics perspective. You have to count Pin number as given in the picture. The **first pin is near to BLE(Bluetooth Low Energy Module which has Raspberry logo)**.
+
+> Important: In programming we can use both BCM GPIO numbering or physical board numbering. For beginners I recommend physical bord numbering. In physical numbering left column of GPIO headers is `odd numbers` while right column is `even number`.
+
+> Important: **In every program I am telling you about Physical BOARD pin numbering in order to void confusion.**
+
 ## Reading Keypad
 1. For reading or scanning keypad pull-up resistors are inevitable. Why? Google it. Or go through these articles: 
     1. [sparkfun article](https://learn.sparkfun.com/tutorials/pull-up-resistors/all).
