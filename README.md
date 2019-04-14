@@ -37,7 +37,7 @@
 > `RPi username: pi`
 > `password: raspberry`
 
-## Pinout
+## Pinout [:+1 Discussed]
 
 In order to know more about GPIO headers visit [pinout.xyz](https://pinout.xyz)The RPi GPIO(General purpose IO) pinout given below.
 ![GPIO Headers](/images/1554777830796.png)
@@ -47,7 +47,7 @@ In order to know more about GPIO headers visit [pinout.xyz](https://pinout.xyz)T
 
 > Important: **In every program I am telling you about Physical BOARD pin numbering in order to void confusion.**
 
-## Reading Keypad
+## Reading Keypad [:+1 Discussed]
 1. For reading or scanning keypad pull-up resistors are inevitable. Why? Google it. Or go through these articles: 
     1. [sparkfun article](https://learn.sparkfun.com/tutorials/pull-up-resistors/all).
     2. [Iamzxlee](https://www.google.com/amp/s/iamzxlee.wordpress.com/2013/07/24/4x4-matrix-keypad/amp/)
@@ -114,7 +114,7 @@ RPi: Raspberry Pi
 RD: Remote Desktop
 DHCP: Dynamic host control protocol
 
-## RC522 RFID reader/ writer interfacing
+## RC522 RFID reader/ writer interfacing [:+1 Discussed]
 
 1. Enable SPI. Read [Raspberry-sPi.co.uk](https://www.raspberrypi-spy.co.uk/2014/08/enabling-the-spi-interface-on-the-raspberry-pi/) article. **__Use method 1__** . In order to toggle b/w **Select**, **Finish**, **yes**, and  **no** use Tab keys.
 2. Reboot your Pi using `sudo reboot`
