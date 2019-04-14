@@ -152,3 +152,6 @@ except KeyboardInterrupt:
     raise
 ```
 Refer [PymiLifeup for connections](https://pimylifeup.com/raspberry-pi-rfid-rc522/)
+
+# Further Details
+Click [here](https://chipprogrammers.github.io/PCPL-electro)
