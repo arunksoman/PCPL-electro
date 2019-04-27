@@ -45,6 +45,8 @@ fixed = 5
 print("Press A for Entering budget and B for skipping.")
 Budget_enter = False
 reader = SimpleMFRC522()
+data = {}
+data['RFID'] = []
 while True:
     key = get_key()
     if key :
@@ -53,7 +55,12 @@ while True:
             print(key)
             print("Enter your Budget as a 5 digit number on keypad:")
             skip = False
-        
+        if key == "B":
+            print(key)
+            count = 6
+            Budget_enter = True
+            print("Enter your Budget as a 5 digit number on keypad:")
+            skip = True
         if not skip and key != "A" and count < 6:
             print(skip)
             key = get_key()
@@ -65,17 +72,19 @@ while True:
             if count >= 5:
                 Budget_enter = True
                 print("You can't enter more than 5 digits")
+                
     if Budget_enter:
         print("Hold a tag near the reader")
-        card_read = True
-        id, text = reader.read()
         print("ID: ", id)
-        print(type(id))
+        id, text = reader.read()
+        # print(type(id))
+        print('{"data":[{', file=open("output.json", "a"))
         for index in range(5): 
             if id == product[index][1] and not product[index][3]:
                 product[index][3] = True
                 prize = product[index][2]
                 print(product)
+
                 cart = cart + prize
                 print("prize added= ", prize)
             
@@ -85,8 +94,9 @@ while True:
                 print(product)
                 cart = cart - prize
                 print("prize removed= ", prize)
-        print("cart = ", cart)
+        print("cart = " , cart)
         if cart > budget and not skip:
             print("Warning: Your Budget Exceeded")
     time.sleep(0.3)
 GPIO.cleanup()
+
