@@ -2,7 +2,7 @@ import RPi.GPIO as GPIO
 import time
 import sys
 from mfrc522 import SimpleMFRC522
-
+import json
 
 GPIO.setmode(GPIO.BOARD)
 GPIO.setwarnings(False)
@@ -16,11 +16,11 @@ keys = [
     ['*', '0', '#', 'D']]
 
 product = [
-    ['Product1', 858624605840, 8000],
-    ['Product2', 236811894460, 1000],
-    ['Product3', 650705026722, 1200],
-    ['Product4', 99658219146, 800],
-    ['Product5', 30953647075, 900]
+    ['Product1', 858624605840, 8000, False],
+    ['Product2', 236811894460, 1000, False],
+    ['Product3', 650705026722, 1200, False],
+    ['Product4', 99658219146, 800, False],
+    ['Product5', 30953647075, 900, False]
     ]
 
 for row_pin in rows:
@@ -41,36 +41,52 @@ def get_key():
 count = 0
 budget = 0
 cart = 0
-print("Enter your Budget as a 5 digit number on keypad:")
 fixed = 5
+print("Press A for Entering budget and B for skipping.")
 Budget_enter = False
 reader = SimpleMFRC522()
 while True:
     key = get_key()
-    if count < 6:
-        if key :
-            print("count = ",count)
+    if key :
+        if key == "A":
+            count = 0
+            print(key)
+            print("Enter your Budget as a 5 digit number on keypad:")
+            skip = False
+        
+        if not skip and key != "A" and count < 6:
+            print(skip)
+            key = get_key()
+            print("count = ", count)
             count = count + 1
             temp = int(key) * (10 ** (fixed - count))
             budget = budget + temp
-            print("sum = ", budget)
+            print("budget = ", budget)
             if count >= 5:
                 Budget_enter = True
                 print("You can't enter more than 5 digits")
     if Budget_enter:
         print("Hold a tag near the reader")
-        id, text = reader.read() 
+        card_read = True
+        id, text = reader.read()
         print("ID: ", id)
         print(type(id))
-        for index in range(5):
-            
-            if id == product[index][1]:
+        for index in range(5): 
+            if id == product[index][1] and not product[index][3]:
+                product[index][3] = True
                 prize = product[index][2]
-                print(index)
-                print("prize = ", prize)
-        cart = cart + prize
+                print(product)
+                cart = cart + prize
+                print("prize added= ", prize)
+            
+            elif id == product[index][1] and product[index][3]:
+                product[index][3] = False
+                prize = product[index][2]
+                print(product)
+                cart = cart - prize
+                print("prize removed= ", prize)
         print("cart = ", cart)
-        if cart > budget:
+        if cart > budget and not skip:
             print("Warning: Your Budget Exceeded")
     time.sleep(0.3)
 GPIO.cleanup()
