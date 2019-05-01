@@ -2,6 +2,7 @@ import RPi.GPIO as GPIO
 import random
 import time
 import sys
+from mfrc522 import SimpleMFRC522
 import requests
 import json
 import serial
