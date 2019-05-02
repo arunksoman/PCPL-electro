@@ -6,14 +6,14 @@ import requests
 import json
 import serial
 
-"""product = json.loads(requests.get("http://192.168.43.94:8084/SmartTrolley/Files/hello.txt").text)
-print(product)"""
+product = json.loads(requests.get("http://192.168.43.94:8084/SmartTrolley/Files/ProductData.txt").text)
+print(product)
 
 GPIO.setmode(GPIO.BOARD)
 GPIO.setwarnings(False)
 
 ser = serial.Serial("/dev/ttyACM0", baudrate=9600, timeout= 1)
-
+loop = False
 LCD_RS = 21 
 LCD_E = 24
 LCD_D4 = 23
@@ -111,10 +111,35 @@ def force(message, force):
 
 low = 0
 high = 999
-user_id = random.uniform(low,high)
-pi_id = int(user_id)
-print("pi_id= ", pi_id)
+trolly_id = random.uniform(low,high)
+trolley_id = int(trolly_id)
+print("Trolley id= ", trolley_id)
+str_trolley = str(trolley_id)
+frmt_str_trolley = "    " + str_trolley
+main()
+lcd_init()
+lcd_string("  Trolly id   ", LCD_LINE_1)
+lcd_string(frmt_str_trolley, LCD_LINE_2)
+time.sleep(30)
+trolley_id_ret = json.loads(requests.get("http://192.168.43.94:8084/SmartTrolley/Files/PINVerify.txt").text)
+print(trolley_id_ret)
+print(type(trolley_id_ret))
+print(type(trolley_id_ret[0][0]))
+if trolley_id == trolley_id_ret[0][0]:
+    lcd_string("Pin Verified", LCD_LINE_1)
+    lcd_string("Thank you", LCD_LINE_2)
+    loop = True
+elif trolley_id != trolley_id_ret[0][0]:
+    loop = False 
+    lcd_string("Pin Verification", LCD_LINE_1)
+    lcd_string("     Failed", LCD_LINE_2)
+    time.sleep(2)
+    lcd_string("", LCD_LINE_1)
+    lcd_string("     Exiting...", LCD_LINE_2)
+    time.sleep(1)
+    sys.exit()
 
+print(product)
 out_dict = {}
 out_dict['RFID'] = [] 
 buzzer = 31
@@ -156,13 +181,11 @@ budget = 0
 cart = 0
 fixed = 5
 print("Press A for Entering budget and B for skipping.")
-main()
-lcd_init()
 lcd_string("A :Enter Budget", LCD_LINE_1)
 lcd_string("B: skip Budget", LCD_LINE_2)
 Budget_enter = False
 data = {}
-while True:
+while loop:
     key = get_key()
     if key :
         if key == "A":
